@@ -36,4 +36,4 @@ In this project I use google sheets to log my daily weight, and then use Google 
 ![](/images/Weight%20loss%20so%20far.png)
 
 
-[About](/about.md)
+[About](callumpb/about.md)
