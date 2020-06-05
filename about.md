@@ -1,3 +1,6 @@
+[__Home__](/README.md)&nbsp;&nbsp;&nbsp;[__Projects__](/projects.md)&nbsp;&nbsp;&nbsp;[__About__](/about.md)
+
+
 # About Me
 
 ![](/images/profile_shot.jpg)
