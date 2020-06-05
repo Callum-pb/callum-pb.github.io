@@ -12,6 +12,7 @@ Using Google Colab with Python, Pandas and matplotlib to import my daily weight 
 ![](/images/Weight%20loss%20so%20far.png)
 
 
+___
 ## Exploring My Finances *(on going)*
 Using Google Colab with Python, Pandas and matplotlib to import, clean, explore and visualise my personal finances.
 This was a good next step in working with pandas as the size of the data was much larger than the previous project.
@@ -20,6 +21,8 @@ This will be an ongoing project, as of course, my finances will continue to chan
 
 The source workbook contains every transaction from all of my accounts for the last 14 months. It also contains gross and net income information for every payslip in that time. It also makes an attempy at handling my joint account with my wife, treating her transfers into the account as income. The workbook also contains information on my regular bills, including dates - this makes me wonder if I could create a model for the future of my bank balances. There's also some qualitive information such as credit cards and credit score, and notes on certain income and expense records. 
 
+
+___
 ## Lush Products vs Ingredients *(in progress)*
 I wanted to attempt collecting external data, and to also practice some web-scraping. I thought I would start with a subject I already know a lot about, which would help me catch any contextual errors and hopefully speed up the learning curve. 
 
