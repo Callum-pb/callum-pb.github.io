@@ -27,15 +27,3 @@ I'd like to do some more comprehensive work with my finances as the data is pret
 
 I'd also like to explore some basic GIS projects. I've come across geopandas as a module I'd like to practice - I'm just trying to think of a project I'd enjoy. I'm torn between following someone elses beginers guide, or doing something I think is currently important, such as mapping data to do with the BLM movement, or crime statisitics to help my arguments. 
 
-___
-
-# Projects
-
-## Weight Loss Journey
-
-In this project I use google sheets to log my daily weight, and then use Google Colab environemnt to process and visualise this data. Modules used: Pandas, matplotlib, numpy, gspead
-
-![](/images/Weight%20loss%20so%20far.png)
-
-
-[About](/about.md)
