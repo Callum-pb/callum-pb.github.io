@@ -7,7 +7,7 @@ Currently, I work in retail and stock management for Lush Cosmetics UK.
 I am based in Bromley, London, England.
 My programming knowledge is limited to some short courses during my undergraduate BSc Physics programme. I have also dabbled in small projects over the years, including extensive MS Excel and Google Sheets projects (such as a tailored finance tracking system linked to my phone). 
 
-On this blog I will record my projects, and I choose them and stuggle through them and make them work, and the mistakes I make along the way. I hope in years to come, when I am an established and experienced programmer or data scientist, I can look back and see the progress I have made.
+On this blog I will record my projects, as I choose them and stuggle through them and make them work, as well as showing the mistakes I make along the way. I hope in years to come, when I am an established and experienced programmer or data scientist, I can look back and see the progress I have made.
 
 
 ## Where I'm at:
