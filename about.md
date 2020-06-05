@@ -1,7 +1,3 @@
----
-title: about
----
-
 # Testing
 
 
