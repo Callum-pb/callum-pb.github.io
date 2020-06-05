@@ -1,6 +1,6 @@
 # About Me
 
-
+![](callumpb/images/64732880_2287982241462176_5677421370552614912_n.jpg)
 
 I graduated with my BSc Physics degree from the University of Exeter in 2017. Since then I have gained valuable experience 
 working in retail, security and small businesses. I currently work on the stock team for Lush Cosmetics, but I am looking to move into the data sector.
