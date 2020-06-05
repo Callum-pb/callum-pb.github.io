@@ -1,4 +1,4 @@
-[__Home__](callumpb/README.md)&nbsp;&nbsp;&nbsp;[__Projects__](callumpb/projects.md)&nbsp;&nbsp;&nbsp;[__About__](callumpb/about.md)
+[__Home__](/README.md)&nbsp;&nbsp;&nbsp;[__Projects__](/projects.md)&nbsp;&nbsp;&nbsp;[__About__](/about.md)
 
 
 ## Info
