@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Personal Finance - 1</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Callum PB</a>
+					</header>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="projects.html">Projects</a></li>
+								<li><a href="about.html">About</a></li>
+							</ul>
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/callum-pillinger-brown/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://www.instagram.com/callumrpb/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://www.github.com/Callum-pb/" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+						</nav>
+
+						<!-- Main -->
+							<div id="main">
+
+								<!-- Post -->
+									<section class="post">
+										<header class="major">
+											<h1>Personal Finances<br />
+											Exploration</h1>
+											<p>The first post in a series exploring my personal finances using Google Colab</p>
+										</header>
+										<div class="image main"><img src="images/sh-co-py-logo.jpg" alt="" /></div>
+										<p>Managing finances has always been important to me, both as a hobby and a learning exercise. Traditionally I have always used spreadsheets to record, store and analyse all of my expenses and income sources. This has pushed me to really understand how to push a spreadsheet to its limits, but there comes a point where it would be easier just to use Python. </p>
+										<h2>The Current System</h2>
+										<p>My current system is composed of a few main parts.
+											<ol type= "1">
+												<li><b>Capture:</b> I have a Google Form link on my phone’s home screen so I can input expenses on the go. The Form responses are stored in a sheet in my main finance workbook.</li>
+												<li><b>Logs:</b> I have three sheets (Expenses, Income, Transfers) which store the movement of any capital in my control. The expenses are for anything going out, income for anything coming in (including money my wife transfers into our joint account), and transfers cover movement between all of my accounts, including the joint account.</li>
+													<div class="image main"><img src="images/expense_header.png" alt="" /></div>
+												<li><b>Reconciliation:</b> There is a reconciliation sheet which displays the calculated running balance for each account (using the three logs). Below is a table in which I input the actual balances from given by my online banking and counting any cash I have. These two numbers should match, and if they don’t it highlights any transactions I’m missing or have doubled up.</li>
+												<li><b>Dashboard:</b> In the past, I have experimented with many summaries or dashboard styles, including Google Data Studio. For now, I have downsized and simplified, showing a running balance and available balance for my accounts. Alongside is a table showing a summary of all of the expenses for a given month, with the option to change the month. There is also a table showing all of the regular expenses for each account (such as rent, bills, etc.) alongside the dates they are due.</li>
+													<div class="image main"><img src="images/expense_summary-blurred.jpg" alt="" /></div>
+												<li><b>Backend:</b> I have a couple of sheets which contain a bunch of metadata and information about running the system. It essentially consists of a table of information for data validation. It lists all of my accounts, expense categories, month name and number lookup tables. That kind of thing. This sheet is used for validating all of the inputs and making sure the data is consistent. If I open a new bank account or decide to add a new expense/income category, I go to this sheet and add it to the list.</li>
+												<li><b>Documentation:</b> Finally, I have some sheets dedicated to keeping notes about things I’d like to have a record of or features I would like to implement at some point. One example is a simple table listing all of my credit cards - the card name, company, opening date, opening credit score, credit limit, fees, and notes.</li>
+											</ol>
+										</p>
+
+										<p>Amongst all of this complication is some really valuable insight into my spending and earning habits, as well as information that can help me budget better. Most of what I would like to do can certainly be done within the workbook, such as visualising expense breakdowns or working out how much tax I should have paid in a year. </p>
+
+										<p>However, given how big the data set is becoming, and how slow my laptop is, I have decided to use Google Colab to explore this in data in more depth.</p>
+
+										<p>Of course, this is not a permanent solution for creating a dashboard, for example, but it is a good exercise in Python and will give me some insights. It will allow me to create a more realistic budget, and there is certainly potential for a dashboard in the future. </p>
+
+										<h2>Define the problem:</h2>
+										<p>What am I looking to gain at the end of all of this?</p>
+
+										<p>I’d like to get an idea of where my money is going. To see a breakdown of which expense categories are eating the most money, and how has it changed of time. Am I spending more on food now I’m in lockdown?</p>
+
+										<p>What’s my net worth and is it going up or down?</p>
+
+										<p>Can I visualise my bank balances and predict what they will be in the short term future, using predictable expenses and maybe some unpredictable ones too?</p>
+
+										<p>What would a sensible budget look like, based on the income and expenses I have seen recently or will be seeing soon?</p>
+
+										<h2>Data Availability:</h2>
+										<p>What does the data source look like, and what can I do with it to answer the questions above?</p>
+										<p>Let’s take a look at some examples from my finance workbook that I described above. </p>
+
+										<div class="image main"><img src="images/logs_blurred.jpg" alt="" /></div>
+
+										<p>So we can see that when we import we ill need to clean up the table a little. I’ll also have to do some string formatting and data type conversions. I’ll likely have to combine and merge some tables depending on what I would like to do.</p>
+
+										<h2>The Environment</h2>
+										<p>Let’s set up the environment so we can get going. I’ll be using Google Colab, along with a few packages. I’ll be importing the data directly from my drive within the notebook, rather than downloading a CSV and importing it via a file. This means I can run this code and the data will be up-to-date each time. </p>
+										<p>First, I need to access the Google Sheets using the following code:</p>
+										<pre>
+											<code>
+from google.colab import auth
+auth.authenticate_user()
+import gspread
+from oauth2client.client import GoogleCredentials
+gc = gspread.authorize(GoogleCredentials.get_application_default())
+											</code>
+										</pre>
+										<p>Next, the packages that I will need.</p>
+										<pre>
+											<code>
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
+import numpy as np
+import missingno
+											</code>
+										</pre>
+										<p>The final part of setup is bringing the data into Pandas to utilise the DataFrame object. I'll demonstrate with the 'Expense Log' to begin with, but the method applies to all of the logs I will be using.</p>
+										<pre>
+											<code>
+#Import 'Personal Finance Tracking' sheet from drive
+wb = gc.open_by_url('https://docs.google.com/spreadsheets/d/'[Redacted]'')
+#Use Expense log sheet
+sheet = wb.worksheet('Expense Log')
+#Get all values in sheet
+data = sheet.get_all_values()
+											</code>
+										</pre>
+										Before this section is over, I'll take a quick look at what we've managed to import so far.
+										<pre>
+											<code>
+#Import into Pandas DataFrame and pull out columns headers and delete bad columns
+df = pd.DataFrame(data)
+df.head()
+											</code>
+										</pre>
+
+										<div class="image main"><img src="images/dfhead.png" alt="" /></div>
+
+
+
+										<h2>Conclusion</h2>
+										<p>I can see this project being a long one, so I think it would be a good idea to break this into multiple sub-projects/articles. It is safe to say that there is certainly enough data to get going and pull some useful information our though. I’m eager to explore my financial situation, see how I can use this exercise to improve my position, and also to expand my Python knowledge whilst I’m at it. </p>
+
+										<p>Next up, <a href="#">EDA.</a></p>
+
+									</section>
+
+							</div>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<section class="split contact">
+										<section class="alt">
+											<h3>Location</h3>
+											<p>London, United Kingdom</p>
+										</section>
+										<section>
+											<h3>Email</h3>
+											<p><a href="#">callum.rpb@gmail.com</a></p>
+										</section>
+										<section>
+											<h3>Social</h3>
+											<ul class="icons alt">
+												<li><a href="https://www.linkedin.com/in/callum-pillinger-brown/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+												<li><a href="https://www.instagram.com/callumrpb/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="https://github.com/Callum-pb/" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+											</ul>
+										</section>
+									</section>
+								</footer>
+						</div>
+
+
+				<!-- Scripts -->
+					<script src="assets/js/jquery.min.js"></script>
+					<script src="assets/js/jquery.scrollex.min.js"></script>
+					<script src="assets/js/jquery.scrolly.min.js"></script>
+					<script src="assets/js/browser.min.js"></script>
+					<script src="assets/js/breakpoints.min.js"></script>
+					<script src="assets/js/util.js"></script>
+					<script src="assets/js/main.js"></script>
+
+			</body>
+		</html>
