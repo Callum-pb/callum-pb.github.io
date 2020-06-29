@@ -47,9 +47,32 @@
 								</header>
 								<p>I've always been a big fan of Sudoku. However, sometimes I come across one in the newspaper or a book that I cannot solve and do not have the solution to. I've always wanted a way of checking the answers. So I decided to built a program that would do just that.</p>
 
-								<p>This started as a simple Colab Notebook that utilised a back-tracking algorithm to solve a Sudoku puzzle given a 2D-array. The next stage is to use CV2 to read an image of an unsolved Sudoku puzzle, parse it to a 2D-array to be solved by the previously used solver.</p>
-								<script src="https://gist.github.com/Callum-pb/9a7be8f2cffbf13c79c62a544b964e74.js"></script>
-								<p>As you can see, there's still plenty to do. I'll keep updating this notebook and hopefully soon the full program will be available to see here.</p>
+								<h2>The Algorithm</h2>
+								<p>On the <a href="https://github.com/Callum-pb">Github repo</a> for this project. You'll see a Jupyter Notebook that shows the early stages of this project. And when I realised I started with too large of a scope. The end goal at the start of this project was to have a program that could read in Sudoku puzzles from an image, then product the solution.<br>
+								This proved to be too much in one go. So instead, I created a .py file that would solve a Sudoku puzzle in the form of a 2D-array. This uses a traditional recursive approach.</p>
+								<ol>
+									<li>Find empty cell</li>
+									<li>Try a number in the cell, and see if it's valid (check for duplicated in row, column and 3x3 block)</li>
+									<li>If the number is valid, set that cell to the number and move to the next empty cell. If the number is not valid, try another number.</li>
+									<li>Repeat this process until an empty cell has no valid inputs. I.e. all digits 1-9 are not valid in that cell.</li>
+									<li>Set this cell to empty again</li>
+									<li>Move back to previous cell being worked on and try the next number up</li>
+									<li>Go to step 3</li>
+									<li>Repeat until grid is filled</li>
+								</ol>
+								<p>Below is the <i>solver.py</i> file that contains this process. This file is imported into the GUI file later on.</p>
+								<script src="https://gist.github.com/Callum-pb/632724c0cc5aa8334e68aac5965b72b7.js"></script>
+								<p>Next up was to experiment with Tkinter to create a GUI that displays the puzzle and solutions.</p>
+
+								<h2>The GUI</h2>
+
+								<div class="image main"><img src="images/GUI_trio.png" alt="GUI after 'Clear', 'Load' and 'Solve'" /></div>
+
+								<p>The idea was to create a simple grid of entry cells that allow the input of digits 1-9, and the display of the board in general.<br>
+									My method was to create two <i>Frame</i> objects. One to house the board, and one to house the buttons. The <i>Puzzle Frame</i> containes a 9x9 grid of frames that each have a single <i>Entry</i> object in. These <i>Entry</i> objects validate the input and show the puzzle elements. They can also have their properties changed to show their state.</p>
+								<script src="https://gist.github.com/Callum-pb/ce995b18afb8553307ff34a12d5d4803.js"></script>
+								<p>This GUI is a work in progess, and has some non-functional features. This is because it is going to become the GUI for the larger puzzle-solving project. Eventually this GUI will house the ability to play and solve Sudoku puzzles of any size. It will allow a user to input Sudoku puzzles from an image that is read by an OCR program I have written specifically for this. <br>
+									There will also be other tabs for other puzzle types. The current next puzzle type is the <i>Battleships</i> puzzle.</p>
 
 							</section>
 
